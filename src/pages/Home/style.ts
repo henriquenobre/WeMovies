@@ -1,9 +1,12 @@
 import { styled } from "styled-components";
 
 export const Container = styled.div`
-  display: flex;
+  background-color: ${(props) => props.theme.color.dark};
 `;
 
-export const Title = styled.h2`
-  font-size: ${(props) => props.theme.font.title.size};
+export const MovieContainer = styled.div`
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
 `;
