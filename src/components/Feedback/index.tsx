@@ -1,20 +1,35 @@
 import { Button } from "../Button";
 import { Container, Title } from "./style";
-import Recharge from "../../assets/Recharge.svg";
+import RechargeImage from "../../assets/Recharge.svg";
+import SucceessImage from "../../assets/success.svg";
+import { useNavigate } from "react-router-dom";
+import { useCart } from "../../context/CartContext";
 
 interface FeedbackProps {
-  text: string;
-  action: string;
+  action: "recharge" | "empty" | "success";
 }
 
-export const Feedback = ({ text, action }: FeedbackProps) => {
+export const Feedback = ({ action }: FeedbackProps) => {
+  const navigate = useNavigate();
+  const { clearCart } = useCart();
+
+  const handleClickButton = () => {
+    action === "recharge" ? window.location.reload() : navigate("/");
+    clearCart();
+  };
+
   return (
     <Container>
-      <Title>{text}</Title>
-      <img src={action === "recarregar" ? Recharge : Recharge} alt="" />
+      <Title>
+        {action === "success"
+          ? "Compra realizada com sucesso!"
+          : "Parece que não há nada por aqui :("}
+      </Title>
+      <img src={action === "success" ? SucceessImage : RechargeImage} alt="" />
+      <div></div>
       <Button
-        text={action === "recarregar" ? "Recarregar página" : "VOLTAR"}
-        onClick={() => {}}
+        text={action === "recharge" ? "Recarregar página" : "VOLTAR"}
+        onClick={handleClickButton}
         color="blue"
         width="sm"
       />

@@ -30,6 +30,7 @@ export const SubContainer = styled.div`
   display: flex;
   width: 100%;
   border-bottom: 1px solid ${(props) => props.theme.color.gray};
+  margin-bottom: 10px;
   img {
     height: 82px;
     width: 64px;
@@ -81,8 +82,9 @@ export const TiTleContainer = styled.div`
     flex-direction: column;
     align-items: start;
     h2 {
-      width: auto;
+      width: 105px;
       margin-right: 0px;
+      text-align: start;
     }
     img {
       display: none;
@@ -145,6 +147,7 @@ export const IconImage = styled.img`
   display: none;
   width: auto !important;
   height: auto !important;
+  cursor: pointer;
   @media screen and (min-width: 715px) {
     display: flex;
   }

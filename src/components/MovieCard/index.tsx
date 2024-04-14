@@ -1,38 +1,34 @@
-import { useState } from "react";
 import { formatPrice } from "../../utils/format";
 import { Button } from "../Button";
 import { Container } from "./style";
-import { Loading } from "../Loading";
+import { MovieProps } from "../../pages/Home";
+import { useCart } from "../../context/CartContext";
 
 interface MovieCardProps {
-  image: string;
-  text: string;
-  amount: number;
+  movie: MovieProps;
 }
 
-export const MovieCard = ({ image, text, amount }: MovieCardProps) => {
-  const [loading, setLoading] = useState(false);
-  const handleImageLoad = () => {
-    console.log("entrou");
+export const MovieCard = ({ movie }: MovieCardProps) => {
+  const { addToCart, getTotalItemsOfMovie } = useCart();
 
-    setLoading(false);
+  const handleClickAdd = () => {
+    addToCart(movie);
   };
+
+  const amountAdded = getTotalItemsOfMovie(movie.id);
+
   return (
     <Container>
-      {loading ? (
-        <Loading loading={loading} />
-      ) : (
-        <img
-          src={image}
-          alt=""
-          onLoad={() => handleImageLoad}
-          onLoadedData={handleImageLoad}
-        />
-      )}
-
-      <p>{text}</p>
-      <span>{formatPrice(amount)}</span>
-      <Button onClick={() => {}} text="ADICIONAR AO CARRINHO" color="blue" />
+      <img src={movie.image} alt="" />
+      <p>{movie.title}</p>
+      <span>{formatPrice(movie.price)}</span>
+      <Button
+        onClick={handleClickAdd}
+        text="ADICIONAR AO CARRINHO"
+        color={amountAdded === 0 ? "blue" : "green"}
+        icon
+        amount={amountAdded}
+      />
     </Container>
   );
 };

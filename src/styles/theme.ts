@@ -38,6 +38,10 @@ const Theme = {
       size: "24px",
       weight: 700,
     },
+    header: {
+      size: "14px",
+      weight: 600,
+    },
   },
 };
 

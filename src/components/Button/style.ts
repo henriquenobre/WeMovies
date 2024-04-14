@@ -26,4 +26,30 @@ export const StyledButton = styled.button<ButtonProps>`
   &:focus {
     outline: none;
   }
+
+  img {
+    height: 12px !important;
+    width: 12px !important;
+  }
+
+  span {
+    display: ${(props) => (props.amount === undefined ? "none" : "flex")};
+  }
+
+  #amountButton {
+    margin: 0 12px 0 4px;
+    font-size: ${(props) => props.theme.font.button.size};
+    font-weight: ${(props) => props.theme.font.button.weight};
+    color: ${(props) => props.theme.color.white};
+  }
+
+  #textButton {
+    font-size: ${(props) => props.theme.font.button.size};
+    font-weight: ${(props) => props.theme.font.button.weight};
+    color: ${(props) => props.theme.color.white};
+  }
+
+  @media screen and (max-width: 330px) {
+    width: 100%;
+  }
 `;

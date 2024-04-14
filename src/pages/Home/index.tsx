@@ -3,11 +3,10 @@ import { Header } from "../../components/Header";
 import { Loading } from "../../components/Loading";
 import { Container, MovieContainer } from "./style";
 import { Feedback } from "../../components/Feedback";
-import { Input } from "../../components/Input";
 import { getMovies } from "../../services/movie.service";
 import { MovieCard } from "../../components/MovieCard";
 
-interface MovieProps {
+export interface MovieProps {
   id: number;
   title: string;
   price: number;
@@ -15,7 +14,7 @@ interface MovieProps {
 }
 
 export const Home = () => {
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState<boolean>();
   const [movies, setMovies] = useState<MovieProps[]>([]);
 
   useEffect(() => {
@@ -29,28 +28,20 @@ export const Home = () => {
   return (
     <Container>
       <Header />
-      <Loading loading={loading} />
-      {movies ? (
+      {!loading ? (
         <>
-          <Input />
-          <MovieContainer>
-            {movies.map((movie: MovieProps, index: number) => {
-              return (
-                <MovieCard
-                  key={index}
-                  text={movie.title}
-                  image={movie.image}
-                  amount={movie.price}
-                />
-              );
-            })}
-          </MovieContainer>
+          {movies.length ? (
+            <MovieContainer>
+              {movies.map((movie: MovieProps) => {
+                return <MovieCard key={movie.id} movie={movie} />;
+              })}
+            </MovieContainer>
+          ) : (
+            <Feedback action="recharge" />
+          )}
         </>
       ) : (
-        <Feedback
-          text="Parece que não há nada por aqui :("
-          action="recarregar"
-        />
+        <Loading loading={loading} />
       )}
     </Container>
   );
