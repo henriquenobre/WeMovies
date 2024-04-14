@@ -1,11 +1,11 @@
 import { ThemeProvider } from "styled-components";
-import { Home } from "./pages/Home";
 import Theme from "./styles/theme";
+import { Routers } from "./routes";
 
 function App() {
   return (
     <ThemeProvider theme={Theme}>
-      <Home />
+      <Routers />
     </ThemeProvider>
   );
 }

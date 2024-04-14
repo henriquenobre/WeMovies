@@ -15,9 +15,6 @@ const GlobalStyles = createGlobalStyle`
     @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
     padding: 0 16px 0 16px;
     background-color: #2F2E41;
-    @media screen and (min-width: 1060px) {
-      padding: 0 180px 0 180px;
-    }
   }
 
   body, input, button {
@@ -30,7 +27,7 @@ const GlobalStyles = createGlobalStyle`
     @media screen and (max-width: 715px) {
       max-width: 340px;
     }
-    @media screen and (min-width: 716px) and (max-width: 1386px) {
+    @media screen and (min-width: 716px) and (max-width: 1200px) {
       max-width: 681px;
     }
   }

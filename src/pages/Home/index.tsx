@@ -34,9 +34,10 @@ export const Home = () => {
         <>
           <Input />
           <MovieContainer>
-            {movies.map((movie: MovieProps) => {
+            {movies.map((movie: MovieProps, index: number) => {
               return (
                 <MovieCard
+                  key={index}
                   text={movie.title}
                   image={movie.image}
                   amount={movie.price}

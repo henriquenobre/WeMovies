@@ -34,6 +34,10 @@ const Theme = {
       size: "12px",
       weight: 700,
     },
+    cartTotal: {
+      size: "24px",
+      weight: 700,
+    },
   },
 };
 

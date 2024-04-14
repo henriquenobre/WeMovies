@@ -12,6 +12,7 @@ export const Title = styled.h2`
   font-size: ${(props) => props.theme.font.title.size};
   font-weight: ${(props) => props.theme.font.title.weight};
   color: ${(props) => props.theme.color.white};
+  cursor: pointer;
 `;
 
 export const ContainerCart = styled.div`
@@ -24,4 +25,5 @@ export const ContainerCart = styled.div`
     font-weight: ${(props) => props.theme.font.itens.weight};
     color: ${(props) => props.theme.color.gray};
   }
+  cursor: pointer;
 `;

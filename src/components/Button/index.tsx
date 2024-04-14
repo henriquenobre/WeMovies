@@ -5,7 +5,7 @@ export interface ButtonProps {
   text?: string;
   onClick: MouseEventHandler<HTMLButtonElement>;
   width?: "sm" | "lg";
-  color?: string;
+  color?: "blue" | "green";
 }
 
 export const Button = ({ text, onClick, color }: ButtonProps) => {
