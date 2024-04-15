@@ -42,12 +42,15 @@ export const SubContainer = styled.div`
       margin-bottom: 0px;
     }
   }
+  @media screen and (max-width: 250px) {
+    flex-direction: column;
+  }
 `;
 
 export const DescriptionContainer = styled.div`
   display: flex;
   flex-direction: column;
-  margin-left: 16px;
+  margin-left: 20px;
   @media screen and (min-width: 715px) {
     width: 100%;
     flex-direction: row;
@@ -90,6 +93,16 @@ export const TiTleContainer = styled.div`
       display: none;
     }
   }
+  @media screen and (max-width: 344px) {
+    h2 {
+      width: 100%;
+      margin-right: 0px;
+      text-align: start;
+    }
+  }
+  @media screen and (max-width: 259px) {
+    flex-direction: column;
+  }
 `;
 
 export const AmountContainer = styled.div`
@@ -120,6 +133,9 @@ export const AmountContainer = styled.div`
     font-size: ${(props) => props.theme.font.currency.size};
     font-weight: ${(props) => props.theme.font.currency.weight};
     color: ${(props) => props.theme.color.dark};
+  }
+  @media screen and (max-width: 337px) {
+    flex-direction: column;
   }
   @media screen and (min-width: 716px) and (max-width: 1200px) {
     margin-top: 0px;

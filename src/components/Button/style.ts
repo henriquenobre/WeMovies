@@ -49,7 +49,7 @@ export const StyledButton = styled.button<ButtonProps>`
     color: ${(props) => props.theme.color.white};
   }
 
-  @media screen and (max-width: 330px) {
+  @media screen and (max-width: 344px) {
     width: 100%;
   }
 `;
